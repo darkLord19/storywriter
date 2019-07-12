@@ -1,29 +1,6 @@
-# Microservice template for Go
+# Storywriter Microservice
 
 ![Microservice](https://img.shields.io/badge/microservice-ready-brightgreen.svg?style=for-the-badge)
-[![Build status](https://img.shields.io/travis/com/microservices/go/master.svg?style=for-the-badge)](https://travis-ci.com/microservices/go)
+[![Build status](https://img.shields.io/travis/com/darkLord19/storywriter/master.svg?style=for-the-badge)](https://travis-ci.com/darkLord19/storywriter)
 
-An OMG template for Go.
-
-Usage
------
-
-```coffee
-# Storyscript
-your_service message name: 'Peter'
-# {"message": "Hello Peter"}
-```
-
-Test
-----
-
-```sh
-> omg run message -a name=Service
-ℹ Building Docker image
-…
-✔ Built Docker image with name: omg/l2hvbwuvc2vil2fzew5jes9ydwj5
-✔ Started Docker container: 1c8a91688261
-✔ Health check passed
-✔ Ran action: `message` with output: {"message":"Hello Service"}
-✔ Stopped Docker container: 1c8a91688261
-```
+An OMG microservice to tell stories.
