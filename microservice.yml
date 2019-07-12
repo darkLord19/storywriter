@@ -1,22 +1,26 @@
 omg: 1
 info:
   version: 1.0.0
-  title: Your microservice
-  description: Describe your microservice
+  title: Storywriter
+  description: Templating for strings
   license:
     name: Apache 2.0
     url: https://opensource.org/licenses/Apache-2.0
 lifecycle:
   startup:
-    command: []
+    command: [app]
 actions:
-  message:
+  story:
     http:
-      path: /message
+      path: /story
       method: post
       port: 8080
     arguments:
-      name:
+      words:
+        type: list
+        required: false
+        in: requestBody
+      template:
         type: string
         required: true
         in: requestBody
