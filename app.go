@@ -45,14 +45,19 @@ func (in *Input) PopulateTemplate() (string, error) {
 
 func main() {
 	http.HandleFunc("/story", func(w http.ResponseWriter, r *http.Request) {
-		var in Input
-		json.NewDecoder(r.Body).Decode(&in)
-		response, err := in.PopulateTemplate()
-		if err != nil {
-			json.NewEncoder(w).Encode(err.Error())
-			return
+		switch r.Method {
+		case "POST":
+			var in Input
+			json.NewDecoder(r.Body).Decode(&in)
+			response, err := in.PopulateTemplate()
+			if err != nil {
+				json.NewEncoder(w).Encode(err.Error())
+				return
+			}
+			json.NewEncoder(w).Encode(response)
+		default:
+			fmt.Fprintf(w, "Sorry, only POST method is supported.")
 		}
-		json.NewEncoder(w).Encode(response)
 	})
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
