@@ -59,6 +59,9 @@ func main() {
 			fmt.Fprintf(w, "Sorry, only POST method is supported.")
 		}
 	})
+	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "OK")
+	})
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
