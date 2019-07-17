@@ -9,6 +9,10 @@ info:
 lifecycle:
   startup:
     command: [app]
+health:
+  http:
+    path: /health
+    port: 8080
 actions:
   story:
     http:
@@ -26,7 +30,4 @@ actions:
         in: requestBody
     output:
       contentType: application/json
-      type: object
-      properties:
-        message:
-          type: string
+      type: string
